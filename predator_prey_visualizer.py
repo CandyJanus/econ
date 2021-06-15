@@ -3,6 +3,8 @@ from predator_prey_model import *
 # import numpy and matplotlib
 import numpy as np
 import matplotlib.pylab as plt
+from matplotlib import cm
+from matplotlib.colors import ListedColormap, LinearSegmentedColormap
 import time
 import pylab as pl
 import sympy as sy
@@ -15,6 +17,8 @@ if __name__ == "__main__":
 
     plt.xlabel("Number of Rabbits")
     plt.ylabel("Number of Foxes")
+
+    colourmap=cm.get_cmap('viridis', 512)
     
     M = Model(10, 1)
     i=0
@@ -22,11 +26,14 @@ if __name__ == "__main__":
         i+=1
         print('Cycle number ' + str(i) + ' is running. \n')
         print(M)
-        plt.scatter(M.r, M.f, color='red')
-        plt.draw()
+        plt.scatter(M.r, M.f, c='red')
+        if (i%5==0):
+            plt.draw()
+            plt.pause(0.005)
         M.execute_single_iteration()
+        if (i%100==0):
+            plt.clf()
     
-        plt.pause(0.01)
-
+        
     plt.show()
 

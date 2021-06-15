@@ -15,3 +15,7 @@ sigma_C = np.array([1, 0])
 sigma_D = np.array([0, 1])
 x=prisoners_dilemma[sigma_C, sigma_D]
 print(x)
+
+#we
+
+i
